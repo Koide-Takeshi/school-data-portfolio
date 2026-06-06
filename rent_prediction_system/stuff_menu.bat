@@ -1,5 +1,5 @@
 call %USERPROFILE%\anaconda3\Scripts\activate.bat
-call activate jugyo2
+call activate base
 cd /d %~dp0
-python "%~dp0stuff_menu.py"
+"%USERPROFILE%\anaconda3\python.exe" "%~dp0stuff_menu.py"
 pause

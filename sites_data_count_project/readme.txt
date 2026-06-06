@@ -8,10 +8,10 @@ requirements.txtを参照すること。
 ■実行手順
 1.sites_data_count.batを編集する(2か所)
   ・7行目:set "CONDA_ROOT=%USERPROFILE%\anaconda3"
-　  CONDA_ROOTにanaconda3のインストールパスを設定する。(4D教室内のPCであれば編集不要)
+　  CONDA_ROOTにanaconda3のインストールパスを設定する。
 
-  ・23行目:call conda activate jugyo2
-    自身の仮想環境名に修正。(jugyo2部分を編集)
+  ・23行目:call conda activate base
+    自身の仮想環境名に修正。(base部分を編集)
 
 2.sites_data_count.batを実行
 
@@ -31,7 +31,7 @@ requirements.txtを参照すること。
 ・f_csv2db : 辞書csvの内容で、辞書DBを上書き
   False:未使用(デフォルト)、 True:使用
 
-・f_add_dic: DBを辞書とする際、テキストファイルから単語を登録するか
+・f_add_dict: DBを辞書とする際、テキストファイルから単語を登録するか
   False:無効(デフォルト)、 True:有効
 
 (特記事項)環境変数を設定する際、(環境変数名)=True/Falseの「=」前後にスペースを空けないこと。

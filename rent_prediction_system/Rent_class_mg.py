@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 #家賃クラステーブル管理
 # Mhiyo_class_mg.py
 
@@ -11,6 +8,10 @@ import sqlite3 as sq
 import tkinter as tk
 from tkinter import messagebox as tkMB
 from tkinter import ttk
+from pathlib import Path
+
+# パス設定
+DB_PATH = Path(__file__).resolve().parent / "Rent.db"
 
 # クリア処理
 def g_clear():
@@ -20,7 +21,7 @@ def g_clear():
     ycls_etr.focus_set()
     tree_ccd.delete(*tree_ccd.get_children())
     res_area.configure(text="画面クリアしました")
-    
+
 # 一覧表示
 def ichiran_hyoji():
     res_area.configure(text="")
@@ -28,9 +29,9 @@ def ichiran_hyoji():
     sql = "SELECT * FROM Mhiyo_class ORDER BY Mh_cls"
     c0 = conn.execute(sql)
     for r0 in c0.fetchall():
-        tree_ccd.insert(parent='', index='end', values=(r0[0],r0[1],r0[2]))
+        tree_ccd.insert(parent='', index='end', values=(r0[0], r0[1], r0[2]))
     res_area.configure(text="一覧表示処理しました")
-    
+
 # 新規登録
 def toroku():
     res_area.configure(text="")
@@ -89,22 +90,22 @@ def all_end():
 root = tk.Tk()
 root.geometry("1000x500")
 root.title("月額費用クラス管理")
-tk.Label(root,text="　 月額費用クラス管理  　", fg = "light green", bg = "dark green", font=("Helvetica", "20", "bold italic")).pack()
+tk.Label(root, text="　 月額費用クラス管理  　", fg="light green", bg="dark green", font=("Helvetica", "20", "bold italic")).pack()
 
 #レスポンスメッセージエリア
-res_area = tk.Label(root,width=40,height=3,text="    ", bg="pink",relief=tk.SUNKEN,font=("16"))
-res_area.place(x=220,y=340)
+res_area = tk.Label(root, width=40, height=3, text="    ", bg="pink", relief=tk.SUNKEN, font=("16"))
+res_area.place(x=220, y=340)
 
 # 列の識別名を指定
-column_ycls = ("月額費用クラス","以上","未満")
+column_ycls = ("月額費用クラス", "以上", "未満")
 
 # データ項目
 ycls_lbl = tk.Label(root, text="月額費用クラス", fg="red", font=("明朝", "16", "bold"))
-ycls_etr = tk.Entry(root, width = 1, font = ("", 16))
+ycls_etr = tk.Entry(root, width=1, font=("", 16))
 min_lbl = tk.Label(root, text="以上", fg="blue2", font=("明朝", "16"))
-min_etr = tk.Entry(root, width = 8, font =("明朝", "16"))
+min_etr = tk.Entry(root, width=8, font=("明朝", "16"))
 max_lbl = tk.Label(root, text="未満", fg="blue2", font=("明朝", "16"))
-max_etr = tk.Entry(root, width = 8, font =("明朝", "16"))
+max_etr = tk.Entry(root, width=8, font=("明朝", "16"))
 
 # データ項目配置
 ycls_lbl.place(x=160, y=80)
@@ -117,46 +118,33 @@ max_etr.place(x=700, y=80, height=28)
 # Treeviewの生成
 tree_ccd = ttk.Treeview(root, columns=column_ycls, height=8)
 style = ttk.Style()
-style.configure("Treeview.Heading", font=("Yu Mincho", 12, "bold"),foreground="black")
+style.configure("Treeview.Heading", font=("Yu Mincho", 12, "bold"), foreground="black")
 style.configure("Treeview", font=("Arial", 10))
 # 列の設定
-tree_ccd.column('#0',width=0, stretch='no')
-tree_ccd.column('月額費用クラス', anchor='center',width=150)
-tree_ccd.column('以上',anchor='c')
-tree_ccd.column('未満',anchor='c')
+tree_ccd.column('#0', width=0, stretch='no')
+tree_ccd.column('月額費用クラス', anchor='center', width=150)
+tree_ccd.column('以上', anchor='c')
+tree_ccd.column('未満', anchor='c')
 # 列の見出し設定
-tree_ccd.heading('#0',text='')
-tree_ccd.heading('月額費用クラス', text='月額費用クラス',anchor='center')
+tree_ccd.heading('#0', text='')
+tree_ccd.heading('月額費用クラス', text='月額費用クラス', anchor='center')
 tree_ccd.heading('以上', text='以上', anchor='center')
 tree_ccd.heading('未満', text='未満', anchor='center')
 # ウィジェットの配置
-tree_ccd.place(x=220,y=130)
+tree_ccd.place(x=220, y=130)
 
 # オペレーションボタン
-op_btn1 = tk.Button(root, text=" 一覧表示 ", width = 9, height = 2, font=("明朝","13","bold"),command=ichiran_hyoji).place(x=300, y=440)
-op_btn2 = tk.Button(root, text=" 新規登録 ", width = 9, height = 2, font=("明朝","13","bold"),command=toroku).place(x=410, y=440)
-op_btn3 = tk.Button(root, text=" 変更", width = 11, height = 2, font=("明朝","13","bold"),command=henko).place(x=520, y=440)
-op_btn4 = tk.Button(root, text=" 削除 ", width = 11, height = 2, font=("明朝","13","bold"),command=rec_del).place(x=640, y=440)
-op_btn5 = tk.Button(root, text=" クリア ", width = 9, height = 2, font=("明朝","13","bold"),command=g_clear).place(x=760, y=440)
-op_btn6 = tk.Button(root, text=" 終了", width = 9, height = 2, bg = "yellow2", font=("明朝","13","bold"),command=all_end).place(x=870, y=440)
+op_btn1 = tk.Button(root, text=" 一覧表示 ", width=9, height=2, font=("明朝", "13", "bold"), command=ichiran_hyoji).place(x=300, y=440)
+op_btn2 = tk.Button(root, text=" 新規登録 ", width=9, height=2, font=("明朝", "13", "bold"), command=toroku).place(x=410, y=440)
+op_btn3 = tk.Button(root, text=" 変更", width=11, height=2, font=("明朝", "13", "bold"), command=henko).place(x=520, y=440)
+op_btn4 = tk.Button(root, text=" 削除 ", width=11, height=2, font=("明朝", "13", "bold"), command=rec_del).place(x=640, y=440)
+op_btn5 = tk.Button(root, text=" クリア ", width=9, height=2, font=("明朝", "13", "bold"), command=g_clear).place(x=760, y=440)
+op_btn6 = tk.Button(root, text=" 終了", width=9, height=2, bg="yellow2", font=("明朝", "13", "bold"), command=all_end).place(x=870, y=440)
 
 # ーーーーーー 処理開始　－－－－－－
 
-conn = sq.connect("Rent.db", isolation_level = None)
+conn = sq.connect(str(DB_PATH), isolation_level=None)
 conn.execute("PRAGMA foreign_keys = on")
 res_area.config(text="Rent.db を開きました")
 
 root.mainloop()
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-

@@ -14,3 +14,6 @@ scraping_analysis/sites_data_count_project/03_data/dictionaries/tmp_janome_dic.c
 scraping_analysis/sites_data_count_project/03_data/dictionaries/janome_dic.db
 scraping_analysis/sites_data_count_project/03_data/output/*.xlsx
 scraping_analysis/sites_data_count_project/03_data/output/*.db
+
+# Generated files for the current scraping project layout
+sites_data_count_project/03_data/dictionaries/tmp_janome_dic.csv

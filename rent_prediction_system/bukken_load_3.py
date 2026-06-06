@@ -1,22 +1,17 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[15]:
-
-
-#!/usr/bin/env python
-# coding: utf-8
-
 import os
 import sqlite3
 import tkinter as tk
 from tkinter import filedialog, messagebox
 import pandas as pd
+from pathlib import Path
 
 # ==========================================
-# DBファイル
+# DBファイルパス設定
 # ==========================================
-DB_NAME = "Rent.db"
+DB_PATH = Path(__file__).resolve().parent / "Rent.db"
 
 
 class BukkenLoadApp:
@@ -79,7 +74,6 @@ class BukkenLoadApp:
         # -----------------------------
         # ボタン
         # -----------------------------
-      
 
         btn_load = tk.Button(
             root,
@@ -87,7 +81,7 @@ class BukkenLoadApp:
             width=12,
             font=("Helvetica", 11, "bold"),
             command=self.click_load)
-        btn_load.place(x=450,y=430)
+        btn_load.place(x=450, y=430)
 
         btn_exit = tk.Button(
             root,
@@ -98,19 +92,18 @@ class BukkenLoadApp:
             bg="yellow2",
             fg="red",
             pady=3)
-        btn_exit.place(x=570,y=430)
+        btn_exit.place(x=570, y=430)
 
         # -----------------------------
         # メッセージエリア
         # -----------------------------
-        
 
         self.txt_message = tk.Text(
             root,
             bg="pink",
             relief=tk.SUNKEN,
             font=("Consolas", 10))
-        self.txt_message.place(x=130,y=115,width=440,height=300)
+        self.txt_message.place(x=130, y=115, width=440, height=300)
 
         self.log_message("プログラムを起動しました。")
 
@@ -144,7 +137,7 @@ class BukkenLoadApp:
     # ==========================================
     def get_connection(self):
 
-        return sqlite3.connect(DB_NAME)
+        return sqlite3.connect(DB_PATH)
 
     # ==========================================
     # ロードボタン
@@ -518,16 +511,3 @@ if __name__ == "__main__":
     app = BukkenLoadApp(root)
 
     root.mainloop()
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-

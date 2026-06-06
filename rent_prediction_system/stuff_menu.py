@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[13]:
-
-
 # Menu 画面
 # Yachin_menu.py
 import tkinter as tk
@@ -182,13 +179,6 @@ res_area.place(x=180,y=500)
 
 
 root.mainloop()
-
-
-# In[ ]:
-
-
-
-
 
 # In[ ]:
 

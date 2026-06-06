@@ -1,16 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 import tkinter as tk
 from tkinter import ttk
 import sqlite3
 from pathlib import Path
 
-
-# In[2]:
 
 
 # ============================================================
@@ -41,8 +36,6 @@ RESULT_COLUMNS = [
 ]
 
 
-# In[3]:
-
 
 def get_conn():
 # # SQLアクセス処理　元
@@ -58,8 +51,6 @@ def get_conn():
         # GUI に伝えるために例外を投げ直す
         raise RuntimeError(f"DB接続エラー: {e}")
 
-
-# In[4]:
 
 
 def Area_code():
@@ -94,8 +85,6 @@ def Area_code():
         except:
             pass
 
-
-# In[5]:
 
 
 # def Mhiyo_code():
@@ -162,8 +151,6 @@ def Mhiyo_code():
         except:
             pass
 
-
-# In[6]:
 
 
 # ============================================================
@@ -236,8 +223,6 @@ def get_bukken_by_chiku_and_cls(Cc_code: int, Mh_cls: str) -> list[dict]:
         if conn:
             conn.close()
 
-
-# In[7]:
 
 
 root = tk.Tk()
@@ -457,13 +442,6 @@ tk.Button(root, text="終了",bg="yellow",
 
 
 root.mainloop()
-
-
-# In[ ]:
-
-
-
-
 
 # In[ ]:
 

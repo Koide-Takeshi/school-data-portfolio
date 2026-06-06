@@ -14,11 +14,11 @@
 
 ## GitHub公開用の整理
 
-授業中の作業履歴、旧バージョン、大型のexe/zip/資料ファイルは `_not_for_github/` に退避しています。このフォルダは `.gitignore` で除外し、公開リポジトリには完成版のソースコード・README・デモに必要な小さなデータだけを載せる構成にしています。
+授業中の作業履歴、キャッシュ、生成済みの出力ファイル、大型のexe/zipはGit管理対象外にしています。公開リポジトリには、完成版のソースコード・README・実行に必要な小さなデータを中心に載せる構成です。
 
 ## プロジェクト一覧
 
-### [scraping_analysis](./scraping_analysis/README.md)
+### [sites_data_count_project](./sites_data_count_project/00_START_HERE.md)
 Webサイトのテキストデータを収集し、日本語形態素解析（Janome）で名詞を抽出・集計するツール。  
 **技術:** Python / Janome / SQLite / openpyxl
 
@@ -36,4 +36,4 @@ Webサイトのテキストデータを収集し、日本語形態素解析（Ja
 
 ## 読み方
 
-まずこのREADMEで全体像を確認し、各プロジェクトのREADMEで担当範囲・改善点・実行方法を確認できる構成にしています。コードを見る場合は、形態素解析側は `scraping_analysis/sites_data_count_project/01_src/sites_data_count.py`、GUI側は `rent_prediction_system/stu_menu.py` / `rent_prediction_system/stuff_menu.py` / `rent_prediction_system/ai_estim_2.py` が主な確認対象です。
+まずこのREADMEで全体像を確認し、各プロジェクトのREADMEで担当範囲・改善点・実行方法を確認できる構成にしています。コードを見る場合は、形態素解析側は `sites_data_count_project/01_src/sites_data_count.py`、GUI側は `rent_prediction_system/stu_menu.py` / `rent_prediction_system/stuff_menu.py` / `rent_prediction_system/ai_estim_2.py` が主な確認対象です。
