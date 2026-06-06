@@ -1,0 +1,18 @@
+# 競合サイト分析用データの自動生成プログラム - 依存ライブラリ
+#
+# インストール方法:
+#   pip install -r requirements.txt
+#
+# 各ライブラリの用途:
+#   requests        : WebサイトへのHTTPリクエスト(スクレイピング)
+#   beautifulsoup4  : HTMLパース(記事本文の抽出)
+#   janome          : 日本語形態素解析(名詞抽出)
+#   openpyxl        : Excelファイル(.xlsx)への書き込み
+#
+# 標準ライブラリ(インストール不要)で使用しているもの:
+#   sqlite3, tkinter, threading, collections, os, time
+
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+janome>=0.5.0
+openpyxl>=3.1.0
