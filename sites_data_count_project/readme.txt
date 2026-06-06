@@ -5,6 +5,10 @@ Python : 3.9.25
 ■前提ライブラリ
 requirements.txtを参照すること。
 
+## 担当範囲とブラッシュアップ
+
+グループ制作では、主にJanomeを使った形態素解析を担当しました。制作後のブラッシュアップでは、辞書/NGワード設定の整理、HTTPエラー処理、Excel/DB出力の見やすさを中心に改善しています。
+
 ■実行手順
 1.sites_data_count.batを編集する(2か所)
   ・7行目:set "CONDA_ROOT=%USERPROFILE%\anaconda3"
